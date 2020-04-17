@@ -1,0 +1,18 @@
+version: "3.6"
+services:
+  mqtt:
+    image: eclipse-mosquitto
+    depends_on:
+      - "redis"
+    container_name: mosquitto
+    ports:
+      - "11883:1883"
+      - "9001:9001"
+    volumes:
+      - "./mosquitto.conf:/mosquitto/config/mosquitto.conf"
+
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "11379:6379"
