@@ -12,7 +12,6 @@ ADD requirements.txt /app/
 RUN pip3 install -r /app/requirements.txt
 
 ADD docker/x-run /app/
-ADD ./env/$TARGET_ENV/config.ini /app/config.ini
 ADD ./.build/ /app/
 
 CMD ["sh", "/app/x-run"]

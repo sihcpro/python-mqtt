@@ -8,7 +8,7 @@ CURRENT_TIME?=$(shell date '+%Y%m%d_%H%M%S')
 build: clean-py-binary
 	mkdir -p .build/src
 	rsync -a --copy-links ./src/ ./.build/src/
-	docker build --build-arg BUILD_ENV=$(TARGET_ENV) -t ${IMAGE} -f img/Dockerfile ./
+	docker build --build-arg BUILD_ENV=$(TARGET_ENV) -t ${IMAGE} -f docker/Dockerfile ./
 	docker tag $(IMAGE) $(REPOSITORY)/$(IMAGE)
 
 docker-push:
